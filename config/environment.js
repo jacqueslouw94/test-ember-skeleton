@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'app3',
+    modulePrefix: 'test-ember-skelton',
     environment,
     rootURL: '/',
     locationType: 'auto',
