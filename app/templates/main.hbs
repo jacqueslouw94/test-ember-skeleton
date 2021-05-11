@@ -1,0 +1,113 @@
+<EmberSkeleton::ContentWrapper title="Main Page">
+  <h1>You're on the main view
+    <span class="badge badge-primary sm">Test</span></h1>
+  <div class="text-column">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum.</p>
+  </div>
+
+  <EmberSkeleton::MaterialCard
+    class="bg-white margin-bottom-md"
+  >Test1</EmberSkeleton::MaterialCard>
+  <EmberSkeleton::MaterialCard
+    class="bg-white margin-bottom-md"
+  >Test2</EmberSkeleton::MaterialCard>
+  <EmberSkeleton::MaterialCard
+    class="bg-white margin-bottom-md"
+  >Test3</EmberSkeleton::MaterialCard>
+
+  <div class="alert alert-warning margin-top-lg monospace" role="alert">A simple
+    warning alert—check it out!</div>
+
+  <p class="margin-top-lg">Choose your favorite:
+    {{ember-skeleton/array-join this.names ", " finalJoinString=" or "}}</p>
+
+  <p class="margin-top-lg">I have 1
+    {{ember-skeleton/custom-inflector 1 singular="apple" plural="apples"}}</p>
+  <p>They have 2
+    {{ember-skeleton/custom-inflector 2 singular="apple" plural="apples"}}</p>
+
+  <p class="margin-top-lg">{{ember-skeleton/in-array
+      this.names
+      "Andy Dwyer"
+    }}</p>
+
+  <p class="margin-top-lg">{{ember-skeleton/odd-or-even 1}}
+    /
+    {{ember-skeleton/odd-or-even 2}}</p>
+
+  <p class="margin-top-lg">{{ember-skeleton/readable-file-size 100000}}</p>
+  <p class="margin-top-lg">{{ember-skeleton/replace-string
+      "Hello World"
+      "World"
+      "Jacques"
+    }}</p>
+  <p class="margin-top-lg">{{ember-skeleton/robotise-string
+      "No Way This Will Work!"
+    }}</p>
+
+  <pre>{{json-preffify this.newTableData}}</pre>
+
+  {{!-- <ul>
+    {{#each-in this.newData as |key|}}
+    <li>{{key}}</li>
+    {{/each-in}}
+</ul>
+
+<ul>
+    {{#each this.names as |name|}}
+    <li>{{name}}</li>
+    {{/each}}
+</ul>
+
+<ul>
+    {{#each this.people as |person|}}
+    <li>{{person.name}}</li>
+    {{/each}}
+</ul> --}}
+
+  <div class="compareTableWrapper">
+    <table class="compareTable">
+      {{#each-in this.tableData as |key value|}}
+        <tr>
+          <td>{{key}}</td>
+          <td>{{value}}</td>
+        </tr>
+      {{/each-in}}
+    </table>
+  </div>
+  <div class="compareTableWrapper">
+    <table class="compareTable">
+      {{#each-in this.newTableData as |key value|}}
+        <tr
+          class="{{if
+              (ember-skeleton/in-array (object-keys this.newData) key)
+              "highlight"
+              "no-light"
+            }}"
+        >
+          <td>{{key}}</td>
+          <td>{{value}}</td>
+        </tr>
+      {{/each-in}}
+    </table>
+  </div>
+
+  <Modal
+    @title={{"Testing Ember Addons"}}
+    @subbar={{"This is where the fun begins!"}}
+    @open={{true}}
+  >
+    <pre>{{json-stringify (hash name="Jacques" surname="Louw" age="26")}}</pre>
+
+    <p>{{object-keys (hash name="Jacques" surname="Louw" age="26")}}</p>
+  </Modal>
+
+  {{outlet}}
+</EmberSkeleton::ContentWrapper>
